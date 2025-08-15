@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Level 2</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Background (ganti sesuai file PNG kamu) */
+    background-image: url('images/bg-game2.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .question {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 30px;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px 40px;
+    justify-content: center;
+  }
+  button.choice {
+    background: #f15a29;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  button.choice:hover {
+    background: #d94e24;
+  }
+  /* Popup centang */
+  .popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup img {
+    width: 150px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Pilihan jawaban -->
+<div class="choices">
+  <button class="choice" onclick="checkAnswer(2)">2</button>
+  <button class="choice" onclick="checkAnswer(10)">10</button>
+  <button class="choice" onclick="checkAnswer(3)">3</button>
+  <button class="choice" onclick="checkAnswer(7)">7</button>
+</div>
+
+<!-- Popup benar -->
+<div class="popup" id="popup">
+  <img src="images/check.png" alt="Benar!">
+</div>
+
+<script>
+  let answered = false;
+  function checkAnswer(answer) {
+    if (answered) return; // hanya sekali pilih
+    answered = true;
+    if (answer === 2) {
+      document.getElementById('popup').style.display = 'flex';
+      setTimeout(() => {
+        window.location.href = 'game3.html'; // pindah ke game berikutnya
+      }, 1500);
+    }
+  }
+</script>
+
+</body>
+</html>

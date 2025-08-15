@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Level 1</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Background */
+    background-image: url('images/bg-game1.png'); /* ganti dengan nama file PNG kamu */
+    background-size: cover;      
+    background-position: center; 
+  }
+
+  .choices {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  button.choice {
+    background: #f15a29;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  button.choice:hover {
+    background: #d94e24;
+  }
+
+  /* Popup centang */
+  .popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup img {
+    width: 150px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Tempat gambar pertanyaan -->
+<div id="question-image">
+  <!-- Kamu taruh <img src="images/apple.png" alt="Apel"> di sini -->
+</div>
+
+<!-- Pilihan jawaban -->
+<div class="choices">
+  <button class="choice" onclick="checkAnswer('APEL')">APEL</button>
+  <button class="choice" onclick="checkAnswer('LEMON')">LEMON</button>
+  <button class="choice" onclick="checkAnswer('JERUK')">JERUK</button>
+  <button class="choice" onclick="checkAnswer('PIR')">PIR</button>
+</div>
+
+<!-- Popup benar -->
+<div class="popup" id="popup">
+  <img src="images/check.png" alt="Benar!">
+</div>
+
+<script>
+  let answered = false;
+  function checkAnswer(answer) {
+    if (answered) return; // hanya sekali pilih
+    answered = true;
+    if (answer === 'APEL') {
+      document.getElementById('popup').style.display = 'flex';
+      setTimeout(() => {
+        window.location.href = 'game2.html'; // pindah ke game berikutnya
+      }, 1500);
+    }
+  }
+</script>
+
+</body>
+</html>
