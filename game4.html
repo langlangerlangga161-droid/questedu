@@ -3,16 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Game Level 1</title>
+<title>Game Level 2</title>
 <style>
   body{
     margin:0;font-family:Arial, sans-serif;min-height:100vh;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background-image:url('images/bg-game1.png'); /* Ganti sesuai file PNG kamu */
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;
+    background-image:url('images/bg-game4.png'); /* Ganti sesuai file PNG kamu */
     background-size:cover;
     background-position:center;
   }
-  .choices{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+  .question{font-size:48px;font-weight:bold}
+  .choices{
+    display:grid;grid-template-columns:repeat(2, auto);gap:20px 40px;justify-content:center
+  }
   button.choice{
     background:#f15a29;color:#fff;border:none;padding:10px 20px;border-radius:20px;
     cursor:pointer;font-weight:bold;font-size:16px;transition:background .3s
@@ -33,10 +36,10 @@
 <body>
 
 <div class="choices">
-  <button class="choice" onclick="checkAnswer('APEL')">APEL</button>
-  <button class="choice" onclick="checkAnswer('LEMON')">LEMON</button>
-  <button class="choice" onclick="checkAnswer('JERUK')">JERUK</button>
-  <button class="choice" onclick="checkAnswer('PIR')">PIR</button>
+  <button class="choice" onclick="checkAnswer(5)">5</button>
+  <button class="choice" onclick="checkAnswer(15)">15</button>
+  <button class="choice" onclick="checkAnswer(6)">6</button>
+  <button class="choice" onclick="checkAnswer(8)">8</button>
 </div>
 
 <div class="popup" id="popup-correct">
@@ -59,9 +62,9 @@
     if (answered) return;
     answered = true;
     document.querySelectorAll('button.choice').forEach(b => b.disabled = true);
-    if (answer === 'APEL'){
+    if (answer === 6){
       showPopup('popup-correct');
-      setTimeout(()=>{ window.location.href = 'game2.html'; }, 1500);
+      setTimeout(()=>{ window.location.href = 'end.html'; }, 1500);
     } else {
       showPopup('popup-wrong');
       setTimeout(()=>{ location.reload(); }, 1500); // balik ke awal

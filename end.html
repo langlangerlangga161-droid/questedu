@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akhir Permainan</title>
+<style>
+  body{
+    margin:0;font-family:Arial, sans-serif;min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+    background-image:url('images/bg-ending.png'); /* ganti dengan PNG kamu */
+    background-size:cover;
+    background-position:center;
+  }
+  button{
+    background:#f15a29;color:#fff;border:none;padding:12px 28px;
+    border-radius:25px;font-size:16px;font-weight:bold;
+    cursor:pointer;transition:background .3s;
+    width:200px;
+  }
+  button:hover{background:#d94e24}
+
+  /* Responsive biar enak di HP */
+  @media (max-width:600px){
+    button{width:80%;font-size:14px;padding:10px 20px}
+  }
+</style>
+</head>
+<body>
+
+<button onclick="window.location.href='game1.html'">MENGULANG</button>
+<button onclick="window.location.href='index.html'">KELUAR</button>
+
+</body>
+</html>
